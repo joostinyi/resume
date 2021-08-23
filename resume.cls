@@ -27,6 +27,7 @@
 \usepackage{ifthen} % Required for ifthenelse statements
 \usepackage{hyperref}
 \usepackage[svgnames]{xcolor}
+\usepackage{tabularx}
 \hypersetup{
   urlcolor=MidnightBlue,
   colorlinks = true,
@@ -113,22 +114,24 @@
   \end{list}
 }
 
+
+
 %----------------------------------------------------------------------------------------
 %WORK EXPERIENCE FORMATTING
 %----------------------------------------------------------------------------------------
 
-\newenvironment{rSubsection}[4]{ % 4 input arguments - company name, year(s) employed, job title and location
- {\bf #1} \hfill {#2} % Bold company name and date on the right
- \ifthenelse{\equal{#3}{}}{}{ % If the third argument is not specified, don't print the job title and location line
-  \\
-  {\textbf{\em #3}} \hfill {\em #4} % Italic job title and location
-  }\enskip
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+\newenvironment{rSubsection}[3]{ % 4 input arguments - company name, year(s) employed, job title
+  \begin{tabularx}{\textwidth}{YYY}
+    \textbf{#3} & \textbf{#1} & \textbf{#2} \\
+  \end{tabularx}
+  \enskip
   \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
    \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
   }{
   \end{list}
-  \vspace{0.1em} % Some space after the list of bullet points
 }
+
 
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
 \def\namesize{\huge} % Size of the name at the top of the document
