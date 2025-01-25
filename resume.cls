@@ -36,6 +36,9 @@
 
 \pagestyle{empty} % Suppress page numbers
 
+\usepackage[none]{hyphenat} % Prevent word breaks across lines
+\sloppy
+
 %----------------------------------------------------------------------------------------
 %HEADINGS COMMANDS: Commands for printing name and address
 %----------------------------------------------------------------------------------------
@@ -107,7 +110,7 @@
   \sectionlineskip
   \hrule % Horizontal line
   \begin{list}{}{ % List for each individual item in the section
-    \setlength{\leftmargin}{1.5em} % Margin within the section
+    \setlength{\leftmargin}{.5em} % Margin within the section
   }
   \item[]
   }{
@@ -121,9 +124,11 @@
 %----------------------------------------------------------------------------------------
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
-\newenvironment{rSubsection}[3]{ % 4 input arguments - company name, year(s) employed, job title
-  \begin{tabularx}{\textwidth}{YYY}
-    \textbf{#3} & \textbf{#1} & \textbf{#2} \\
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
+\newcolumntype{R}{>{\raggedleft\arraybackslash}X}
+\newenvironment{rSubsection}[3]{ % 3 input arguments - company name, year(s) employed, job title
+  \begin{tabularx}{\textwidth}{LYR}
+    \textbf{#1} & \textbf{#2} & \textbf{#3} \\
   \end{tabularx}
   \enskip
   \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
@@ -134,7 +139,7 @@
 
 
 % The below commands define the whitespace after certain things in the document - they can be \smallskip, \medskip or \bigskip
-\def\namesize{\huge} % Size of the name at the top of the document
+\def\namesize{\LARGE} % Size of the name at the top of the document
 \def\addressskip{\smallskip} % The space between the two address (or phone/email) lines
 \def\sectionlineskip{\smallskip} % The space above the horizontal line for each section 
 \def\nameskip{\medskip} % The space after your name at the top
