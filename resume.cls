@@ -132,7 +132,7 @@
   \end{tabularx}
   \enskip
   \begin{list}{$\cdot$}{\leftmargin=0em} % \cdot used for bullets, no indentation
-   \itemsep -0.5em \vspace{-0.5em} % Compress items in list together for aesthetics
+   \itemsep -0.5em \vspace{-.1em} % Compress items in list together for aesthetics
   }{
   \end{list}
 }
